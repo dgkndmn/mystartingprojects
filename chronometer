@@ -1,0 +1,9 @@
+import time
+from chronometer import Chronometer
+
+long_running_task = lambda: time.sleep(5) # bekleme süresi giriliyor
+
+with Chronometer() as t:
+    print("Bekleme işlemi başladı.")
+    long_running_task()
+    print('{:.3f} saniye doldu!'.format(float(t)))
